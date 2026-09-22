@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<!-- Hand-built fixture modeled on real `nmap -sV -oX -` output. Replace with
+     real scans of your lab hosts as you collect them. -->
+<nmaprun scanner="nmap" args="nmap -sT -sV --version-intensity 5 -T3 -oX - 10.10.10.30" start="1790000000" version="7.95" xmloutputversion="1.05">
+  <host starttime="1790000001" endtime="1790000042">
+    <status state="up" reason="conn-refused" reason_ttl="0"/>
+    <address addr="10.10.10.30" addrtype="ipv4"/>
+    <hostnames>
+      <hostname name="ubuntu-srv.lab.internal" type="PTR"/>
+    </hostnames>
+    <ports>
+      <extraports state="closed" count="995"/>
+      <port protocol="tcp" portid="22">
+        <state state="open" reason="syn-ack" reason_ttl="0"/>
+        <service name="ssh" product="OpenSSH" version="8.9p1 Ubuntu 3ubuntu0.10" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10">
+          <cpe>cpe:/a:openbsd:openssh:8.9p1</cpe>
+          <cpe>cpe:/o:linux:linux_kernel</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="80">
+        <state state="open" reason="syn-ack" reason_ttl="0"/>
+        <service name="http" product="Apache httpd" version="2.4.52" extrainfo="(Ubuntu)" method="probed" conf="10">
+          <cpe>cpe:/a:apache:http_server:2.4.52</cpe>
+        </service>
+      </port>
+      <port protocol="tcp" portid="3306">
+        <state state="open" reason="syn-ack" reason_ttl="0"/>
+        <service name="mysql" method="table" conf="3"/>
+      </port>
+      <port protocol="tcp" portid="8080">
+        <state state="filtered" reason="no-response" reason_ttl="0"/>
+        <service name="http-proxy" method="table" conf="3"/>
+      </port>
+    </ports>
+  </host>
+  <runstats>
+    <finished time="1790000042" timestr="" elapsed="42.10" summary="1 IP address (1 host up) scanned in 42.10 seconds" exit="success"/>
+    <hosts up="1" down="0" total="1"/>
+  </runstats>
+</nmaprun>

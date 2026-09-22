@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sage-security"
+version = "0.1.0"
+description = "AI-assisted network security assessment and education. Tools determine the facts; AI explains them."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Christian Ramirez" }]
+requires-python = ">=3.11"
+dependencies = [
+    "defusedxml>=0.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+sage = "sagesec.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
